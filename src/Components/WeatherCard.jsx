@@ -4,9 +4,10 @@ import { Card } from "react-bootstrap";
 
 class WeatherCard extends React.Component {
 
+ 
   render() {
     const { max_temp, min_temp } = this.props;
-    console.log(max_temp, min_temp);
+    
     return (
       <div>
         <Card
@@ -21,13 +22,13 @@ class WeatherCard extends React.Component {
             fontFamily: "Caveat, cursive",
           }}
         >
-          <Card.Img variant="top" src="assets/nRain.svg" height="60px" />
+          <Card.Img variant="top" src="assets/10n.svg" height="60px" />
           <Card.Body>
             <Card.Title
               style={{
                 padding: "0rem 4.5rem",
                 color: "wheat",
-                fontSize: "3rem",
+                fontSize: "2.4rem",
               }}
             >
               {Math.trunc(max_temp)} C
@@ -36,7 +37,7 @@ class WeatherCard extends React.Component {
               style={{
                 padding: "1rem 4.5rem",
                 color: "wheat",
-                fontSize: "3rem",
+                fontSize: "2.4rem",
               }}
             >
               {Math.trunc(min_temp)} C

@@ -6,6 +6,7 @@ import bgimg from "./bgimg.jpg";
 class BottomComponent extends React.Component {
   state = {
     items: {},
+    weather: {}
   };
 
   componentDidMount() {
@@ -16,11 +17,21 @@ class BottomComponent extends React.Component {
       .then((result) => {
         this.setState({
           items: result.main,
-        });
+          weather: result.weather
+         
+        }
+        );
+        console.log(this.state);
       });
 
-    console.log(this.state.items);
+    
   }
+  
+
+  icondecider = function () {
+    const { icon } = this.state.weather;
+
+  };
 
   render() {
     return (
@@ -41,6 +52,7 @@ class BottomComponent extends React.Component {
               <WeatherCard
                 max_temp={this.state.items.temp_max}
                 min_temp={this.state.items.temp_min}
+                
               />
             </Col>
             <Col md="auto">

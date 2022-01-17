@@ -13,7 +13,7 @@ class WeatherCard extends React.Component {
         <Card
           // border="success"
           style={{
-            width: "15rem",
+            width: "14rem",
             padding: "1rem 0rem",
             margin: "1rem 2.5rem",
             // border: "0px",

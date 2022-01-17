@@ -39,7 +39,7 @@ class BottomComponent extends React.Component {
         <Container
           fluid
           style={{
-            backgroundImage: `url(${bgimg})`,
+            height:"100%"
           }}
         >
           <Row className="justify-content-md-center">
@@ -52,7 +52,6 @@ class BottomComponent extends React.Component {
               <WeatherCard
                 max_temp={this.state.items.temp_max}
                 min_temp={this.state.items.temp_min}
-                
               />
             </Col>
             <Col md="auto">

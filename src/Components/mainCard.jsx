@@ -48,10 +48,11 @@ class MainCard extends React.Component {
           alignConten: "center",
         }}
       >
-        <div className="container-fluid bg-info text-center p-1">
+        <div className="container-fluid text-center p-1">
           <div className="row">
             <div className="col">
-              <div className="card">
+              <div className="card"
+               style={{backgroundColor: "rgba(245, 245, 245, 0)",}}>
                 <ul className="list-group list-group-flush">
                   <li className="list-group-item h4">Wind</li>
                   <li className="list-group-item lead">
@@ -77,6 +78,7 @@ class MainCard extends React.Component {
                   justifyContent: "center",
                   display: "flex",
                   alignItems: "center",
+                  backgroundColor: "rgba(245, 245, 245, 0)",
                 }}
               >
                 <div className="row no-gutters text-center">

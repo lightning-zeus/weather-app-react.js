@@ -10,25 +10,14 @@ import bgimg from "../src/Components/bgimg.jpg";
 
 function App() {
   return (
-    <div>
-      <Container
-        fluid
-        style={{
-          backgroundImage: `url(${bgimg})`,
-        }}
-      >
-        <Row>
-          <Col>
-            <MainCard />
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <BottomComponent />
-          </Col>
-        </Row>
-      </Container>
-    </div>
+    <div
+      style={{
+        backgroundImage: `url(${bgimg})`,
+        height: "100vh"
+    }}>
+      <MainCard />
+      <BottomComponent/>
+      </div>
   );
 }
 

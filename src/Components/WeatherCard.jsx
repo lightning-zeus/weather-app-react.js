@@ -13,20 +13,22 @@ class WeatherCard extends React.Component {
         <Card
           // border="success"
           style={{
-            width: "14rem",
+            width: "15rem",
             padding: "1rem 0rem",
-            margin: "1rem 2.5rem",
+            margin: "1rem 3rem",
             // border: "0px",
             backgroundColor: "rgba(245, 245, 245, 0)",
             borderColor: "cyan",
             fontFamily: "Caveat, cursive",
+            height: "40vh",
+            
           }}
         >
           <Card.Img variant="top" src="assets/10n.svg" height="60px" />
           <Card.Body>
             <Card.Title
               style={{
-                padding: "0rem 4.5rem",
+                padding: "3rem 4.5rem",
                 color: "wheat",
                 fontSize: "2.4rem",
               }}

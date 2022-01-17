@@ -39,7 +39,7 @@ class BottomComponent extends React.Component {
         <Container
           fluid
           style={{
-            height:"100%"
+            height: "20vh"
           }}
         >
           <Row className="justify-content-md-center">

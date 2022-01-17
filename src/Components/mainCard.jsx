@@ -51,22 +51,19 @@ class MainCard extends React.Component {
         <div className="container-fluid text-center p-1">
           <div className="row">
             <div className="col">
-              <div className="card"
-               style={{backgroundColor: "rgba(245, 245, 245, 0)",}}>
-                <ul className="list-group list-group-flush">
-                  <li className="list-group-item h4">Wind</li>
-                  <li className="list-group-item lead">
-                    {this.state.windSpeed} NNW
-                  </li>
-                  <li className="list-group-item h4">Humidity</li>
-                  <li className="list-group-item lead">
-                    {this.state.humidity}%
-                  </li>
-                  <li className="list-group-item h4">Pressure</li>
-                  <li className="list-group-item lead">
-                    {this.state.pressure} hPa
-                  </li>
-                </ul>
+              <div
+                className="card"
+                style={{
+                  backgroundColor: "rgba(245, 245, 245, 0)",
+                  color: "white",
+                }}
+              >
+                <h1 className="h4">Wind</h1>
+                <h2 className="lead">{this.state.windSpeed} NNW</h2>
+                <h1 className="h4">Humidity</h1>
+                <h2 className="lead">{this.state.humidity}%</h2>
+                <h1 className="h4">Pressure</h1>
+                <h2 className="lead">{this.state.pressure} hPa</h2>
               </div>
             </div>
 
@@ -79,6 +76,7 @@ class MainCard extends React.Component {
                   display: "flex",
                   alignItems: "center",
                   backgroundColor: "rgba(245, 245, 245, 0)",
+                  color: "white",
                 }}
               >
                 <div className="row no-gutters text-center">
@@ -101,17 +99,17 @@ class MainCard extends React.Component {
               </div>
             </div>
             <div className="col">
-              <div className="card">
-                <ul className="list-group list-group-flush">
-                  <li className="list-group-item h4">Max Temperature</li>
-                  <li className="list-group-item lead">
-                    {this.state.maxTemp}&#176;C
-                  </li>
-                  <li className="list-group-item h4">Min Temperature</li>
-                  <li className="list-group-item lead">
-                    {this.state.minTemp}&#176;C
-                  </li>
-                </ul>
+              <div
+                className="card"
+                style={{
+                  backgroundColor: "rgba(245, 245, 245, 0)",
+                  color: "white",
+                }}
+              >
+                <h1 className="h4">Max Temperature</h1>
+                <h2 className="lead">{this.state.maxTemp}&#176;C</h2>
+                <h1 className="h4">Min Temperature</h1>
+                <h2 className="lead">{this.state.minTemp}&#176;C</h2>
               </div>
             </div>
           </div>

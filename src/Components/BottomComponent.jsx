@@ -6,7 +6,7 @@ import bgimg from "./bgimg.jpg";
 class BottomComponent extends React.Component {
   state = {
     items: {},
-    weather: {}
+    weather: {},
   };
 
   componentDidMount() {
@@ -17,69 +17,32 @@ class BottomComponent extends React.Component {
       .then((result) => {
         this.setState({
           items: result.main,
-          weather: result.weather
-         
-        }
-        );
+          weather: result.weather,
+        });
         console.log(this.state);
       });
-
-    
   }
-  
 
   icondecider = function () {
     const { icon } = this.state.weather;
-
   };
 
   render() {
     return (
-      <div>
-        <Container
-          fluid
-          style={{
-            height: "20vh"
-          }}
-        >
-          <Row className="justify-content-md-center">
-            <Col
-              md="auto"
-              // style={{
-              //   margin: "0rem 3.5rem",
-              // }}
-            >
-              <WeatherCard
-                max_temp={this.state.items.temp_max}
-                min_temp={this.state.items.temp_min}
-              />
-            </Col>
-            <Col md="auto">
-              <WeatherCard
-                max_temp={this.state.items.temp_max}
-                min_temp={this.state.items.temp_min}
-              />
-            </Col>
-            <Col md="auto">
-              <WeatherCard
-                max_temp={this.state.items.temp_max}
-                min_temp={this.state.items.temp_min}
-              />
-            </Col>
-            <Col md="auto">
-              <WeatherCard
-                max_temp={this.state.items.temp_max}
-                min_temp={this.state.items.temp_min}
-              />
-            </Col>
-            <Col md="auto">
-              <WeatherCard
-                max_temp={this.state.items.temp_max}
-                min_temp={this.state.items.temp_min}
-              />
-            </Col>
-          </Row>
-        </Container>
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          gap: "1rem 2rem",
+          justifyContent: "center",
+          height: "100vh"
+        }}
+      >
+        <WeatherCard />
+        <WeatherCard />
+        <WeatherCard />
+        <WeatherCard />
+        <WeatherCard />
       </div>
     );
   }

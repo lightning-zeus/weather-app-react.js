@@ -9,19 +9,18 @@ class WeatherCard extends React.Component {
     const { max_temp, min_temp } = this.props;
     
     return (
-      <div>
+      <div >
         <Card
           // border="success"
           style={{
-            width: "15rem",
+            width: "17rem",
             padding: "1rem 0rem",
-            margin: "1rem 3rem",
+            margin: "2em 2em",
             // border: "0px",
             backgroundColor: "rgba(245, 245, 245, 0)",
             borderColor: "cyan",
             fontFamily: "Caveat, cursive",
-            height: "40vh",
-            
+            height: "auto",
           }}
         >
           <Card.Img variant="top" src="assets/10n.svg" height="60px" />

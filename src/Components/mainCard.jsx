@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import MainLeftComp from "./MainLeftComp";
+import MainRightcomp from "./MainRightcomp";
 
 class MainCard extends React.Component {
   state = {
@@ -46,74 +48,20 @@ class MainCard extends React.Component {
           alignItems: "center",
           justifyContent: "center",
           alignConten: "center",
+          flex: "row",
+          flexWrap: "wrap",
         }}
-      >
-        <div className="container-fluid text-center p-1">
-          <div className="row">
-            <div className="col">
-              <div
-                className="card"
-                style={{
-                  backgroundColor: "rgba(245, 245, 245, 0)",
-                  color: "white",
-                }}
-              >
-                <h1 className="h4">Wind</h1>
-                <h2 className="lead">{this.state.windSpeed} NNW</h2>
-                <h1 className="h4">Humidity</h1>
-                <h2 className="lead">{this.state.humidity}%</h2>
-                <h1 className="h4">Pressure</h1>
-                <h2 className="lead">{this.state.pressure} hPa</h2>
-              </div>
-            </div>
-
-            <div className="col">
-              <div
-                className="card mb-3"
-                style={{
-                  maxWidth: "540px",
-                  justifyContent: "center",
-                  display: "flex",
-                  alignItems: "center",
-                  backgroundColor: "rgba(245, 245, 245, 0)",
-                  color: "white",
-                }}
-              >
-                <div className="row no-gutters text-center">
-                  <div className="col">
-                    <div>{this.getCurrentDate()}</div>
-                    <div className="lead mb-1">{this.state.location}</div>
-                    <div>
-                      <img
-                        className="img-fluid rounded"
-                        src={this.state.imageUrls}
-                        alt=""
-                      />
-                    </div>
-                    <div className="lead mt-2">{this.state.currentWeather}</div>
-                    <div className="display-4">
-                      {this.state.currentTemp}&#176;C
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col">
-              <div
-                className="card"
-                style={{
-                  backgroundColor: "rgba(245, 245, 245, 0)",
-                  color: "white",
-                }}
-              >
-                <h1 className="h4">Max Temperature</h1>
-                <h2 className="lead">{this.state.maxTemp}&#176;C</h2>
-                <h1 className="h4">Min Temperature</h1>
-                <h2 className="lead">{this.state.minTemp}&#176;C</h2>
-              </div>
-            </div>
-          </div>
-        </div>
+      >   
+        {/* <div style={{
+          color: "white",
+          textAlign: "left",
+        }}>
+          <h1>Kolkata , India</h1>
+          <h4>Monday ,  23rd January</h4>
+        </div> */}
+        <MainLeftComp/>
+        <MainRightcomp/>  
+        
       </div>
     );
   }

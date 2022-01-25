@@ -1,23 +1,23 @@
 import React, { Component } from "react";
 import { Card } from "react-bootstrap";
-
+import VerticalSlider from "./VerticalSliders";
 
 class WeatherCard extends React.Component {
 
  
   render() {
-    const { max_temp, min_temp } = this.props;
-    
+    const { tempmax, tempmin } = this.props;
     return (
-      <div >
+      <div>
         <Card
           // border="success"
           style={{
             width: "17rem",
             padding: "1rem 0rem",
             margin: "2em 2em",
-            // border: "0px",
-            backgroundColor: "rgba(245, 245, 245, 0)",
+            border: "0px",
+            backgroundColor: "rgba(245, 245, 245, 0.1)",
+            opacity: "0.9",
             borderColor: "cyan",
             fontFamily: "Caveat, cursive",
             height: "auto",
@@ -32,8 +32,9 @@ class WeatherCard extends React.Component {
                 fontSize: "2.4rem",
               }}
             >
-              {Math.trunc(max_temp)} C
+              {Math.trunc(tempmax)}°
             </Card.Title>
+
             <Card.Title
               style={{
                 padding: "1rem 4.5rem",
@@ -41,7 +42,7 @@ class WeatherCard extends React.Component {
                 fontSize: "2.4rem",
               }}
             >
-              {Math.trunc(min_temp)} C
+              {Math.trunc(tempmin)}°
             </Card.Title>
           </Card.Body>
         </Card>

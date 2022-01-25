@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import WeatherCard from "./WeatherCard";
 import { Container, Col, Row, Card } from "react-bootstrap";
-import bgimg from "./bgimg.jpg";
 
 class BottomComponent extends React.Component {
   state = {
@@ -11,7 +10,7 @@ class BottomComponent extends React.Component {
 
   componentDidMount() {
     fetch(
-      "http://api.openweathermap.org/data/2.5/weather?q=London&units=metric&appid=cb4d3020367da2edfedc7ab07356eb3f"
+      "http://api.openweathermap.org/data/2.5/weather?q=Kolkata&units=metric&appid=cb4d3020367da2edfedc7ab07356eb3f"
     )
       .then((res) => res.json())
       .then((result) => {
@@ -19,15 +18,17 @@ class BottomComponent extends React.Component {
           items: result.main,
           weather: result.weather,
         });
-        console.log(this.state);
       });
   }
 
   icondecider = function () {
     const { icon } = this.state.weather;
+    
   };
 
   render() {
+    const { temp_max, temp_min } = this.state.items;
+    console.log(temp_max, temp_min);
     return (
       <div
         style={{
@@ -35,14 +36,14 @@ class BottomComponent extends React.Component {
           flexWrap: "wrap",
           gap: "1rem 2rem",
           justifyContent: "center",
-          height: "100vh"
+          height: "100vh",
         }}
       >
-        <WeatherCard />
-        <WeatherCard />
-        <WeatherCard />
-        <WeatherCard />
-        <WeatherCard />
+        <WeatherCard tempmax={temp_max} tempmin={temp_min}/>
+        <WeatherCard tempmax={temp_max} tempmin={temp_min} />
+        <WeatherCard tempmax={temp_max} tempmin={temp_min} />
+        <WeatherCard tempmax={temp_max} tempmin={temp_min} />
+        <WeatherCard tempmax={temp_max} tempmin={temp_min} />
       </div>
     );
   }

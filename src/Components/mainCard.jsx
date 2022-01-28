@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import MainLeftComp from "./MainLeftComp";
 import MainRightcomp from "./MainRightcomp";
+import SearchBar from "./SearchBar";
 
 class MainCard extends React.Component {
   state = {
@@ -12,7 +13,7 @@ class MainCard extends React.Component {
     humidity: "",
     windSpeed: "",
     location: "",
-    imageUrls: "https://picsum.photos/200",
+    imageUrls: "",
   };
 
   componentDidMount() {
@@ -47,11 +48,11 @@ class MainCard extends React.Component {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          alignConten: "center",
+          alignContent: "center",
           flex: "row",
           flexWrap: "wrap",
         }}
-      >   
+      >
         {/* <div style={{
           color: "white",
           textAlign: "left",
@@ -59,9 +60,9 @@ class MainCard extends React.Component {
           <h1>Kolkata , India</h1>
           <h4>Monday ,  23rd January</h4>
         </div> */}
-        <MainLeftComp/>
-        <MainRightcomp/>  
-        
+        <MainLeftComp />
+        <SearchBar />
+        <MainRightcomp />
       </div>
     );
   }

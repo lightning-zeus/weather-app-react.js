@@ -1,27 +1,35 @@
-import React from 'react';
+import React from "react";
 function MainLeftComp() {
   return (
     <div
       className="card mb-3"
       style={{
         maxWidth: "540px",
-        justifyContent: "center",
+        justifyContent: "left",
         display: "flex",
         alignItems: "center",
         backgroundColor: "rgba(245, 245, 245, 0)",
         color: "white",
-        margin: "0em 40em 0em 0em",
+        margin: "0em 10em 0em 0em",
         fontFamily: "Caveat, cursive",
       }}
     >
-      <div className="row no-gutters text-center" >
-        <div className="col" >
-          <div style={{
-            fontSize: "3rem",
-          }}>Kolkata, INDIA</div>
-          <div style={{
-            fontSize:"2rem"
-          }}>23rd January</div>
+      <div className="row no-gutters text-center">
+        <div className="col">
+          <div
+            style={{
+              fontSize: "3rem",
+            }}
+          >
+            Kolkata, INDIA
+          </div>
+          <div
+            style={{
+              fontSize: "2rem",
+            }}
+          >
+            23rd January
+          </div>
           <div
             style={{
               display: "flex",
@@ -33,7 +41,7 @@ function MainLeftComp() {
               src={"assets/nRain.svg"}
               alt=""
               style={{
-                margin: "1rem"
+                margin: "1rem",
               }}
             />
             <div

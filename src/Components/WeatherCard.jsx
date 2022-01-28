@@ -3,8 +3,6 @@ import { Card } from "react-bootstrap";
 import VerticalSlider from "./VerticalSliders";
 
 class WeatherCard extends React.Component {
-
- 
   render() {
     const { tempmax, tempmin } = this.props;
     return (
@@ -32,7 +30,7 @@ class WeatherCard extends React.Component {
                 fontSize: "2.4rem",
               }}
             >
-              {Math.trunc(tempmax)}°
+              {Math.trunc(tempmax)}°C
             </Card.Title>
 
             <Card.Title
@@ -42,7 +40,7 @@ class WeatherCard extends React.Component {
                 fontSize: "2.4rem",
               }}
             >
-              {Math.trunc(tempmin)}°
+              {Math.trunc(tempmin)}°C
             </Card.Title>
           </Card.Body>
         </Card>

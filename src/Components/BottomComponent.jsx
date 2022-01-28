@@ -3,31 +3,26 @@ import WeatherCard from "./WeatherCard";
 import { Container, Col, Row, Card } from "react-bootstrap";
 
 class BottomComponent extends React.Component {
-  state = {
-    items: {},
-    weather: {},
-  };
+  // state = {
+  //   items: {},
+  //   weather: {},
+  // };
 
-  componentDidMount() {
-    fetch(
-      "http://api.openweathermap.org/data/2.5/weather?q=Kolkata&units=metric&appid=cb4d3020367da2edfedc7ab07356eb3f"
-    )
-      .then((res) => res.json())
-      .then((result) => {
-        this.setState({
-          items: result.main,
-          weather: result.weather,
-        });
-      });
-  }
-
-  icondecider = function () {
-    const { icon } = this.state.weather;
-    
-  };
+  // componentDidMount() {
+  //   fetch(
+  //     "http://api.openweathermap.org/data/2.5/weather?q=Kolkata&units=metric&appid=cb4d3020367da2edfedc7ab07356eb3f"
+  //   )
+  //     .then((res) => res.json())
+  //     .then((result) => {
+  //       this.setState({
+  //         items: result.main,
+  //         weather: result.weather,
+  //       });
+  //     });
+  // }
 
   render() {
-    const { temp_max, temp_min } = this.state.items;
+  const { temp_max, temp_min } = this.props.weatherinfo;
     console.log(temp_max, temp_min);
     return (
       <div

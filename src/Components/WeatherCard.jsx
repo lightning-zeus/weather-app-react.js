@@ -16,7 +16,7 @@ class WeatherCard extends React.Component {
             padding: "1rem 0rem",
             margin: "2em 2em",
             border: "0px",
-            backgroundColor: "rgba(245, 245, 245, 0.1)",
+            backgroundColor: "rgba(245, 245, 245, 0.07)",
             opacity: "0.9",
             borderColor: "cyan",
             fontFamily: "Caveat, cursive",

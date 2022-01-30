@@ -51,17 +51,17 @@ class MainCard extends React.Component {
     raise an event and the handleEnter to handle it from MainCard. This method 
     would be passed as a reference to SearchBar via props
   */
-  handleEnter = (event) => {
-    console.log("Event Handler clicked");
-    event.preventDefault();
-    this.setState({
-      city: this.inputNode.value,
-      url: `http://api.openweathermap.org/data/2.5/weather?q= 
-        ${this.state.city} 
-        &units=metric&appid=cb4d3020367da2edfedc7ab07356eb3f`,
-    });
-    console.log(this.state.url);
-  };
+  // handleEnter = (event) => {
+  //   console.log("Event Handler clicked");
+  //   event.preventDefault();
+  //   this.setState({
+  //     city: this.inputNode.value,
+  //     url: `http://api.openweathermap.org/data/2.5/weather?q=
+  //       ${this.state.city}
+  //       &units=metric&appid=cb4d3020367da2edfedc7ab07356eb3f`,
+  //   });
+  //   console.log(this.state.url);
+  // };
 
   render() {
     const { temp } = this.props.weatherinfo;
@@ -90,7 +90,7 @@ class MainCard extends React.Component {
           curWeather={main}
           currentDate={this.props.currentDate}
         />
-        <SearchBar onEnter={this.handleEnter} />
+
         <MainRightcomp />
       </div>
     );

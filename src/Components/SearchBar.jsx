@@ -28,9 +28,9 @@ class SearchBar extends Component {
           display: "flex",
           flexDirection: "",
           textAlign: "center",
-          alignItems: "center",
-          justifyContent: "center",
-          margin: "0em 8em"
+          // alignItems: "center",
+          justifyContent: "right",
+          margin: "2em 4em 4em 4em",
         }}
       >
         <form>

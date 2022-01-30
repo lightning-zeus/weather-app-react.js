@@ -9,16 +9,16 @@ class SearchBar extends Component {
     console.log(prevState, this.state);
   }
 
-  handleEnter = (event) => {
-    event.preventDefault();
-    this.setState({
-      city: this.inputNode.value,
-      url: `http://api.openweathermap.org/data/2.5/weather?q= 
-        ${this.state.city} 
-        &units=metric&appid=cb4d3020367da2edfedc7ab07356eb3f`,
-    });
-    console.log(this.state.city);
-  };
+  //handleEnter = (event) => {
+  //  event.preventDefault();
+  //  this.setState({
+  //    city: this.inputNode.value,
+  //    url: `http://api.openweathermap.org/data/2.5/weather?q=
+  //      ${this.state.city}
+  //      &units=metric&appid=cb4d3020367da2edfedc7ab07356eb3f`,
+  //  });
+  //  console.log(this.state.city);
+  //};
 
   render() {
     return (
@@ -42,7 +42,7 @@ class SearchBar extends Component {
             placeholder="Enter a City"
           ></input>
           <button
-            onClick={this.handleEnter}
+            onClick={this.props.onEnter}
             className="btn btn-secondary btn-sm"
           >
             Enter

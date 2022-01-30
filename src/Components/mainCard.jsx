@@ -41,6 +41,28 @@ class MainCard extends React.Component {
   //      alert("Oops, city not found!!");
   //    });
   //}
+
+  state = {
+    url: "",
+  };
+  /* 
+    Originally this method was in SearchBar; however obtaining the 
+    final api call statement through the form input required that the SearchBar
+    raise an event and the handleEnter to handle it from MainCard. This method 
+    would be passed as a reference to SearchBar via props
+  */
+  handleEnter = (event) => {
+    console.log("Event Handler clicked");
+    event.preventDefault();
+    this.setState({
+      city: this.inputNode.value,
+      url: `http://api.openweathermap.org/data/2.5/weather?q= 
+        ${this.state.city} 
+        &units=metric&appid=cb4d3020367da2edfedc7ab07356eb3f`,
+    });
+    console.log(this.state.url);
+  };
+
   render() {
     const { temp } = this.props.weatherinfo;
     const { main } = this.props.iconInfo; //not working
@@ -64,7 +86,7 @@ class MainCard extends React.Component {
           <h4>Monday ,  23rd January</h4>
         </div> */}
         <MainLeftComp curTemp={temp} curWeather={main} />
-        <SearchBar />
+        <SearchBar onEnter={this.handleEnter} />
         <MainRightcomp />
       </div>
     );

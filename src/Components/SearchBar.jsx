@@ -30,6 +30,7 @@ class SearchBar extends Component {
           textAlign: "center",
           alignItems: "center",
           justifyContent: "center",
+          margin: "0em 8em"
         }}
       >
         <form>

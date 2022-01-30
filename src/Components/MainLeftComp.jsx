@@ -14,7 +14,7 @@ class MainLeftComp extends Component {
           alignItems: "center",
           backgroundColor: "rgba(245, 245, 245, 0)",
           color: "white",
-          margin: "0em 10em 0em 0em",
+          margin: "0em 20em 0em 0em",
           fontFamily: "Caveat, cursive",
         }}
       >

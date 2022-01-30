@@ -1,11 +1,13 @@
 import React, { Component } from "react";
-
+import { byIso } from 'country-code-lookup';
 class MainLeftComp extends Component {
   state = {};
 
   render() {
-    const { curTemp } = this.props;
-    console.log(curTemp);
+    const { temp, icon, currentDate, cityName, countryCode } = this.props;
+   let regionNames = new Intl.DisplayNames(["en"], { type: "region" });
+    const countryName=(regionNames.of(countryCode));
+
     return (
       <div
         className="card mb-3"
@@ -16,7 +18,7 @@ class MainLeftComp extends Component {
           alignItems: "center",
           backgroundColor: "rgba(245, 245, 245, 0)",
           color: "white",
-          margin: "0em 20em 0em 0em",
+          margin: "0em 30em 0em -20em",
           fontFamily: "Caveat, cursive",
         }}
       >
@@ -27,7 +29,7 @@ class MainLeftComp extends Component {
                 fontSize: "3rem",
               }}
             >
-              Kolkata, INDIA
+              {cityName},{countryName}
             </div>
             <div
               style={{
@@ -58,7 +60,7 @@ class MainLeftComp extends Component {
                   fontFamily: "Caveat, cursive",
                 }}
               >
-                <div className="display-3">{Math.trunc(curTemp)}°C</div>
+                <div className="display-3">{Math.trunc(temp)}°C</div>
                 <div>MOSTLY SUNNY</div>
               </div>
             </div>

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Card } from "react-bootstrap";
-import VerticalSlider from "./VerticalSliders";
 
 class WeatherCard extends React.Component {
   render() {

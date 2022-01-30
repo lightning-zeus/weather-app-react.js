@@ -7,29 +7,55 @@ class PrimeCard extends Component {
   state = {
     items: {},
     weather: {},
+    city: "",
+    countryCode: "",
   };
 
-  handleEnter = (event) => {
+  handleEnter = (city) => {
     console.log("Event Handler clicked");
-    event.preventDefault();
-    this.setState({
-      city: this.inputNode.value,
-      url: `http://api.openweathermap.org/data/2.5/weather?q= 
-        ${this.state.city} 
-        &units=metric&appid=cb4d3020367da2edfedc7ab07356eb3f`,
-    });
-    console.log(this.state.url);
+    fetch(
+      `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=cb4d3020367da2edfedc7ab07356eb3f`
+    )
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+        if (result.cod===200) {
+          this.setState({
+            items: result.main,
+            weather: result.weather,
+            city: result.name,
+            countryCode: result.sys.country,
+          });
+          console.log("Then executed");
+        }
+      })
+      .catch((e) => {
+        alert("Oops, city not found!!");
+        //  this.setState({
+        //    items: {},
+        //    weather: {},
+        //    city: `Kolkata`,
+        //    url: `http://api.openweathermap.org/data/2.5/weather?q=kolkata&units=metric&appid=cb4d3020367da2edfedc7ab07356eb3f`,
+        //  });
+      });
+    
   };
+
+  
+    
+  
 
   componentDidMount() {
     fetch(
-      "http://api.openweathermap.org/data/2.5/weather?q=Kolkata&units=metric&appid=cb4d3020367da2edfedc7ab07356eb3f"
+      `http://api.openweathermap.org/data/2.5/weather?q=kolkata&units=metric&appid=cb4d3020367da2edfedc7ab07356eb3f`
     )
       .then((res) => res.json())
       .then((result) => {
         this.setState({
           items: result.main,
           weather: result.weather,
+          city: result.name,
+          countryCode: result.sys.country,
         });
       });
   }
@@ -61,9 +87,11 @@ class PrimeCard extends Component {
           onEnter={this.handleEnter}
         />
         <MainCard
-          weatherinfo={this.state.items}
-          iconInfo={this.state.weather}
+          temp={this.state.items.temp}
+          icon={this.state.weather.icon}
           currentDate={this.getCurrentDate()}
+          cityName={this.state.city}
+          countryCode={this.state.countryCode}
         />
         <BottomComponent
           weatherinfo={this.state.items}

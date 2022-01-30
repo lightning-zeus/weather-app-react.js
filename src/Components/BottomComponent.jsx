@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import WeatherCard from "./WeatherCard";
-import { Container, Col, Row, Card } from "react-bootstrap";
+
 
 class BottomComponent extends React.Component {
   // state = {

@@ -64,9 +64,8 @@ class MainCard extends React.Component {
   // };
 
   render() {
-    const { temp } = this.props.weatherinfo;
-    const { main } = this.props.iconInfo; //not working
-    console.log(temp, main);
+    const { temp,icon,currentDate,cityName,countryCode } = this.props;
+   
     return (
       <div
         style={{
@@ -86,9 +85,11 @@ class MainCard extends React.Component {
           <h4>Monday ,  23rd January</h4>
         </div> */}
         <MainLeftComp
-          curTemp={temp}
-          curWeather={main}
-          currentDate={this.props.currentDate}
+          temp={temp}
+          icon={icon}
+          currentDate={currentDate}
+          cityName={cityName}
+          countryCode={countryCode}
         />
 
         <MainRightcomp />

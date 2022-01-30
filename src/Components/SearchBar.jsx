@@ -6,10 +6,11 @@ class SearchBar extends Component {
   };
 
   componentDidUpdate(prevProps, prevState) {
+    if(prevState!==this.state)
     console.log(prevState, this.state);
   }
 
-  //handleEnter = (event) => {
+  // handleEnter = (event) => {
   //  event.preventDefault();
   //  this.setState({
   //    city: this.inputNode.value,
@@ -18,7 +19,7 @@ class SearchBar extends Component {
   //      &units=metric&appid=cb4d3020367da2edfedc7ab07356eb3f`,
   //  });
   //  console.log(this.state.city);
-  //};
+  // };
 
   render() {
     return (
@@ -33,7 +34,7 @@ class SearchBar extends Component {
           margin: "2em 4em 4em 4em",
         }}
       >
-        <form>
+        <form onSubmit={e=>e.preventDefault()}>
           <input
             type="text"
             style={{ height: "40px", fontWeight: "bold", borderRadius: "10px" }}
@@ -43,7 +44,7 @@ class SearchBar extends Component {
             placeholder="Enter a City"
           ></input>
           <button
-            onClick={this.props.onEnter}
+            onClick={()=>this.props.onEnter(this.inputNode.value)}
             className="btn btn-secondary btn-sm"
           >
             Enter

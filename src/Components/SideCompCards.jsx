@@ -1,6 +1,5 @@
 import React from 'react';
 import "../"
-import { Card, Button } from 'react-bootstrap';
 function SideCompCards() {
     return (
       <div

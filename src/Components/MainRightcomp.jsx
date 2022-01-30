@@ -14,12 +14,14 @@ function MainRightcomp() {
         style={{
           display: "flex",
           flexDirection: "row",
-          margin: "2em 0em"
+          margin: "2em 0em",
         }}
       >
-        <SideCompCards style={{
-           padding: "0em 4em"
-        }} />
+        <SideCompCards
+          style={{
+            padding: "0em 4em",
+          }}
+        />
         <SideCompCards />
         <SideCompCards />
       </div>
@@ -27,7 +29,7 @@ function MainRightcomp() {
       <div
         style={{
           display: "flex",
-          flexDirection: ""
+          flexDirection: "",
         }}
       >
         <SideCompCards />

@@ -1,6 +1,8 @@
 import React, { Component } from "react";
+
 class MainLeftComp extends Component {
   state = {};
+
   render() {
     const { curTemp } = this.props;
     console.log(curTemp);
@@ -32,7 +34,7 @@ class MainLeftComp extends Component {
                 fontSize: "2rem",
               }}
             >
-              23rd January
+              {this.props.currentDate}
             </div>
             <div
               style={{

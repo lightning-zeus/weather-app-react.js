@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import MainCard from './mainCard';
-import BottomComponent from './BottomComponent';
-import bgimg from './bgimg.jpg'
+import React, { Component } from "react";
+import MainCard from "./mainCard";
+import BottomComponent from "./BottomComponent";
+import bgimg from "./bgimg.jpg";
 class PrimeCard extends Component {
   state = {
     items: {},
@@ -25,6 +25,11 @@ class PrimeCard extends Component {
     const { icon } = this.state.weather;
   };
 
+  getCurrentDate() {
+    let newDate = new Date();
+    return newDate.toDateString();
+  }
+
   render() {
     return (
       <div
@@ -41,6 +46,7 @@ class PrimeCard extends Component {
         <MainCard
           weatherinfo={this.state.items}
           iconInfo={this.state.weather}
+          currentDate={this.getCurrentDate()}
         />
         <BottomComponent
           weatherinfo={this.state.items}
@@ -50,5 +56,5 @@ class PrimeCard extends Component {
     );
   }
 }
- 
+
 export default PrimeCard;

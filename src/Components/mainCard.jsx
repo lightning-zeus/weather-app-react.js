@@ -85,16 +85,20 @@ class MainCard extends React.Component {
           <h1>Kolkata , India</h1>
           <h4>Monday ,  23rd January</h4>
         </div> */}
-        <MainLeftComp curTemp={temp} curWeather={main} />
+        <MainLeftComp
+          curTemp={temp}
+          curWeather={main}
+          currentDate={this.props.currentDate}
+        />
         <SearchBar onEnter={this.handleEnter} />
         <MainRightcomp />
       </div>
     );
   }
-  getCurrentDate() {
-    let newDate = new Date();
-    return newDate.toDateString();
-  }
+  //getCurrentDate() {
+  //  let newDate = new Date();
+  //  return newDate.toDateString();
+  //}
 }
 
 export default MainCard;

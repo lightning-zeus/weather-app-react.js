@@ -1,17 +1,20 @@
 import React, { Component } from "react";
 import MainCard from "./mainCard";
 import BottomComponent from "./BottomComponent";
-import bgimg from "./bgimg.jpg";
 import SearchBar from "./SearchBar";
+import Loader from "react-js-loader";
 class PrimeCard extends Component {
   state = {
-    items: {},
-    weather: {},
+    currentDayWeather: {},
+    forecastWeather: [],
     city: "",
     countryCode: "",
+    isLoaded: false,
   };
 
-  weatherUpdater = function(lat,lon) {
+
+
+  weatherUpdater = function (lat, lon) {
     fetch(
       `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly,minutely,alerts&units=metric&appid=cb4d3020367da2edfedc7ab07356eb3f`
     )
@@ -30,12 +33,6 @@ class PrimeCard extends Component {
       })
       .catch((e) => {
         alert("Oops, city not found!!");
-        //  this.setState({
-        //    items: {},
-        //    weather: {},
-        //    city: `Kolkata`,
-        //    url: `http://api.openweathermap.org/data/2.5/weather?q=kolkata&units=metric&appid=cb4d3020367da2edfedc7ab07356eb3f`,
-        //  });
       });
   };
   handleEnter = (city) => {
@@ -45,24 +42,28 @@ class PrimeCard extends Component {
     )
       .then((res) => res.json())
       .then((result) => {
-         if (result[0]!==undefined) {
-         //console.log((result[0].lat), (result[0].lon));
-          this.weatherUpdater((result[0].lat), (result[0].lon));
+        if (result[0] !== undefined) {
+          //console.log((result[0].lat), (result[0].lon));
+          this.weatherUpdater(result[0].lat, result[0].lon);
+        } else {
+          alert("Oops, City not found!!");
         }
       });
   };
 
   componentDidMount() {
     fetch(
-      `http://api.openweathermap.org/data/2.5/weather?q=kolkata&units=metric&appid=cb4d3020367da2edfedc7ab07356eb3f`
+      `https://api.openweathermap.org/data/2.5/onecall?lat=22.5727&lon=88.3639&exclude=hourly,minutely,alerts&units=metric&appid=cb4d3020367da2edfedc7ab07356eb3f`
     )
       .then((res) => res.json())
       .then((result) => {
+        console.log(result);
         this.setState({
-          items: result.main,
-          weather: result.weather,
-          city: result.name,
-          countryCode: result.sys.country,
+          currentDayWeather: result.current,
+          forecastWeather: result.daily,
+          city: `Kolkata`,
+          countryCode: `IN`,
+          isLoaded: true,
         });
       });
   }
@@ -77,10 +78,33 @@ class PrimeCard extends Component {
   }
 
   render() {
+    console.log(this.state.currentDayWeather.temp);
+    if (!this.state.isLoaded)
+      return (
+        <div
+          style={{
+            display: "grid",
+            placeItems: "center",
+            height: "100vh",
+            fontFamily: "Caveat, cursive",
+            fontSize: "6rem"
+          }}
+        >
+          <Loader
+            type="spinner-default"
+            title="Downloading Weather Data, Please Wait..."
+            
+            size={120}
+            style={{
+              fontSize: "8rem",
+            }}
+          />
+        </div>
+      );
     return (
       <div
         style={{
-          backgroundImage: `url(${bgimg})`,
+          
           backgroundRepeat: "no-repeat",
           backgroundSize: "auto",
           display: "flex",
@@ -94,15 +118,15 @@ class PrimeCard extends Component {
           onEnter={this.handleEnter}
         />
         <MainCard
-          temp={this.state.items.temp}
-          icon={this.state.weather.icon}
+          currentWeather={this.state.currentDayWeather}
+          //icon={this.state.currentDayWeather.weather.icon}
           currentDate={this.getCurrentDate()}
           cityName={this.state.city}
           countryCode={this.state.countryCode}
         />
         <BottomComponent
-          weatherinfo={this.state.items}
-          iconInfo={this.state.weather}
+          weatherForecast={this.state.forecastWeather}
+          //iconInfo={this.state.forecastWeather}
         />
       </div>
     );

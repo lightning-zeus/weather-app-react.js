@@ -38,3 +38,10 @@
     transform: rotate(360deg);
   }
 }
+span{
+  font-size: 3rem;
+}
+
+body{
+  background-image: url(/public/assets/bgimg.jpg);
+}

@@ -1,10 +1,9 @@
 import React, { Component } from "react";
-import { byIso } from 'country-code-lookup';
 class MainLeftComp extends Component {
   state = {};
 
   render() {
-    const { temp, icon, currentDate, cityName, countryCode } = this.props;
+    const { temp, currentDate, cityName, countryCode } = this.props;
    let regionNames = new Intl.DisplayNames(["en"], { type: "region" });
     const countryName=(regionNames.of(countryCode));
 
@@ -36,7 +35,7 @@ class MainLeftComp extends Component {
                 fontSize: "2rem",
               }}
             >
-              {this.props.currentDate}
+              {currentDate}
             </div>
             <div
               style={{

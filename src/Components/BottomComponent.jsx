@@ -3,27 +3,10 @@ import WeatherCard from "./WeatherCard";
 
 
 class BottomComponent extends React.Component {
-  // state = {
-  //   items: {},
-  //   weather: {},
-  // };
-
-  // componentDidMount() {
-  //   fetch(
-  //     "http://api.openweathermap.org/data/2.5/weather?q=Kolkata&units=metric&appid=cb4d3020367da2edfedc7ab07356eb3f"
-  //   )
-  //     .then((res) => res.json())
-  //     .then((result) => {
-  //       this.setState({
-  //         items: result.main,
-  //         weather: result.weather,
-  //       });
-  //     });
-  // }
 
   render() {
-  const { temp_max, temp_min } = this.props.weatherinfo;
-    //console.log(temp_max, temp_min);
+    const weatherForecast  = this.props.weatherForecast;
+    //console.log(weatherForecast);
     return (
       <div
         style={{
@@ -34,11 +17,11 @@ class BottomComponent extends React.Component {
           height: "100vh",
         }}
       >
-        <WeatherCard tempmax={temp_max} tempmin={temp_min}/>
-        <WeatherCard tempmax={temp_max} tempmin={temp_min} />
-        <WeatherCard tempmax={temp_max} tempmin={temp_min} />
-        <WeatherCard tempmax={temp_max} tempmin={temp_min} />
-        <WeatherCard tempmax={temp_max} tempmin={temp_min} />
+        <WeatherCard tempmax={weatherForecast[1].temp.max} tempmin={weatherForecast[1].temp.min}/>
+        <WeatherCard tempmax={weatherForecast[2].temp.max} tempmin={weatherForecast[2].temp.min} />
+        <WeatherCard tempmax={weatherForecast[3].temp.max} tempmin={weatherForecast[3].temp.min} />
+        <WeatherCard tempmax={weatherForecast[4].temp.max} tempmin={weatherForecast[4].temp.min} />
+        <WeatherCard tempmax={weatherForecast[5].temp.max} tempmin={weatherForecast[5].temp.min} />
       </div>
     );
   }

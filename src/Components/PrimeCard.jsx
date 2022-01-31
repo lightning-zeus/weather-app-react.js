@@ -11,15 +11,14 @@ class PrimeCard extends Component {
     countryCode: "",
   };
 
-  handleEnter = (city) => {
-    console.log("Event Handler clicked");
+  weatherUpdater = function(lat,lon) {
     fetch(
-      `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=cb4d3020367da2edfedc7ab07356eb3f`
+      `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly,minutely,alerts&units=metric&appid=cb4d3020367da2edfedc7ab07356eb3f`
     )
       .then((res) => res.json())
       .then((result) => {
         console.log(result);
-        if (result.cod===200) {
+        if (result.cod === 200) {
           this.setState({
             items: result.main,
             weather: result.weather,
@@ -38,12 +37,20 @@ class PrimeCard extends Component {
         //    url: `http://api.openweathermap.org/data/2.5/weather?q=kolkata&units=metric&appid=cb4d3020367da2edfedc7ab07356eb3f`,
         //  });
       });
-    
   };
-
-  
-    
-  
+  handleEnter = (city) => {
+    console.log("Event Handler clicked");
+    fetch(
+      `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=cb4d3020367da2edfedc7ab07356eb3f`
+    )
+      .then((res) => res.json())
+      .then((result) => {
+         if (result[0]!==undefined) {
+         //console.log((result[0].lat), (result[0].lon));
+          this.weatherUpdater((result[0].lat), (result[0].lon));
+        }
+      });
+  };
 
   componentDidMount() {
     fetch(

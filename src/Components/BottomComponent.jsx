@@ -23,7 +23,7 @@ class BottomComponent extends React.Component {
 
   render() {
   const { temp_max, temp_min } = this.props.weatherinfo;
-    console.log(temp_max, temp_min);
+    //console.log(temp_max, temp_min);
     return (
       <div
         style={{

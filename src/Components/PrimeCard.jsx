@@ -14,26 +14,24 @@ class PrimeCard extends Component {
 
 
 
-  weatherUpdater = function (lat, lon) {
+  weatherUpdater = function (lat, lon,city,country) {
     fetch(
       `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly,minutely,alerts&units=metric&appid=cb4d3020367da2edfedc7ab07356eb3f`
     )
       .then((res) => res.json())
       .then((result) => {
-        console.log(result);
-        if (result.cod === 200) {
-          this.setState({
-            items: result.main,
-            weather: result.weather,
-            city: result.name,
-            countryCode: result.sys.country,
-          });
+       this.setState({
+         currentDayWeather: result.current,
+         forecastWeather: result.daily,
+         city: city,
+         countryCode: country,
+         isLoaded: true,
+       });
           console.log("Then executed");
-        }
       })
-      .catch((e) => {
-        alert("Oops, city not found!!");
-      });
+      // .catch((e) => {
+      //   console.log("Problem here")
+      // });
   };
   handleEnter = (city) => {
     console.log("Event Handler clicked");
@@ -42,11 +40,11 @@ class PrimeCard extends Component {
     )
       .then((res) => res.json())
       .then((result) => {
+        console.log(result);
         if (result[0] !== undefined) {
-          //console.log((result[0].lat), (result[0].lon));
-          this.weatherUpdater(result[0].lat, result[0].lon);
+          this.weatherUpdater(result[0].lat, result[0].lon,result[0].name,result[0].country);
         } else {
-          alert("Oops, City not found!!");
+          console.log("Oops, City not found!!");
         }
       });
   };
@@ -78,7 +76,7 @@ class PrimeCard extends Component {
   }
 
   render() {
-    console.log(this.state.currentDayWeather.temp);
+    //console.log(this.state);
     if (!this.state.isLoaded)
       return (
         <div

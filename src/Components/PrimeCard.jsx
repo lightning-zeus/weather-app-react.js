@@ -20,6 +20,7 @@ class PrimeCard extends Component {
     )
       .then((res) => res.json())
       .then((result) => {
+        console.log(result);
        this.setState({
          currentDayWeather: result.current,
          forecastWeather: result.daily,
@@ -27,24 +28,22 @@ class PrimeCard extends Component {
          countryCode: country,
          isLoaded: true,
        });
-          console.log("Then executed");
+          
       })
-      // .catch((e) => {
-      //   console.log("Problem here")
-      // });
+     
   };
   handleEnter = (city) => {
-    console.log("Event Handler clicked");
+    
     fetch(
       `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=cb4d3020367da2edfedc7ab07356eb3f`
     )
       .then((res) => res.json())
       .then((result) => {
-        console.log(result);
+        
         if (result[0] !== undefined) {
           this.weatherUpdater(result[0].lat, result[0].lon,result[0].name,result[0].country);
         } else {
-          console.log("Oops, City not found!!");
+          alert("Oops, City not found!!");
         }
       });
   };
@@ -55,7 +54,7 @@ class PrimeCard extends Component {
     )
       .then((res) => res.json())
       .then((result) => {
-        console.log(result);
+        
         this.setState({
           currentDayWeather: result.current,
           forecastWeather: result.daily,

@@ -29,7 +29,7 @@ class WeatherCard extends React.Component {
                 fontSize: "2.4rem",
               }}
             >
-              {Math.trunc(tempmax)}°C
+              {Math.trunc(tempmin)}°C
             </Card.Title>
 
             <Card.Title
@@ -39,7 +39,7 @@ class WeatherCard extends React.Component {
                 fontSize: "2.4rem",
               }}
             >
-              {Math.trunc(tempmin)}°C
+              {Math.trunc(tempmax)}°C
             </Card.Title>
           </Card.Body>
         </Card>

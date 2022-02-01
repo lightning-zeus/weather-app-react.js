@@ -1,43 +1,58 @@
-import React from 'react';
-import SideCompCards from './SideCompCards';
+import React, { Component } from "react";
+import SideCompCards from "./SideCompCards";
 
-function MainRightcomp() {
-  return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        margin: "0em -25em 0em 25em"
-      }}
-    >
+class MainRightcomp extends Component {
+  state = {};
+  render() {
+    const { currentWeather } = this.props;
+    const { humidity, pressure, feels_like, sunrise, sunset, wind_speed } =
+      currentWeather;
+    //console.log(humidity, pressure);
+
+    return (
       <div
         style={{
           display: "flex",
-          flexDirection: "row",
-          margin: "2em 0em",
+          flexDirection: "column",
+          margin: "0em -25em 0em 25em",
         }}
       >
-        <SideCompCards
+        <div
           style={{
-            padding: "0em 4em",
+            display: "flex",
+            flexDirection: "row",
+            margin: "2em 0em",
           }}
-        />
-        <SideCompCards />
-        <SideCompCards />
-      </div>
+        >
+          <SideCompCards
+            style={{
+              padding: "0em 4em",
+            }}
+            text={"Feels Like"}
+            value={feels_like}
+            suffix={"°C"}
+          />
+          <SideCompCards text={"Humidity"} value={humidity} suffix={"%"} />
+          <SideCompCards text={"Pressure"} value={pressure} suffix={"HPa"} />
+        </div>
 
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "",
-        }}
-      >
-        <SideCompCards />
-        <SideCompCards />
-        <SideCompCards />
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "",
+          }}
+        >
+          <SideCompCards text={"Sunrise"} value={sunrise} suffix={""} />
+          <SideCompCards text={"Sunset"} value={sunset} suffix={""} />
+          <SideCompCards
+            text={"Wind Speed"}
+            value={wind_speed}
+            suffix={"kmph"}
+          />
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default MainRightcomp;

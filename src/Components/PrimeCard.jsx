@@ -6,32 +6,32 @@ import Loader from "react-js-loader";
 class PrimeCard extends Component {
   state = {
     currentDayWeather: {},
+    currentFeelsLike: "",
     forecastWeather: [],
     city: "",
     countryCode: "",
     isLoaded: false,
   };
 
-
-
-  weatherUpdater = function (lat, lon,city,country) {
+  weatherUpdater = function (lat, lon, city, country) {
     fetch(
       `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly,minutely,alerts&units=metric&appid=cb4d3020367da2edfedc7ab07356eb3f`
     )
       .then((res) => res.json())
       .then((result) => {
-       this.setState({
-         currentDayWeather: result.current,
-         forecastWeather: result.daily,
-         city: city,
-         countryCode: country,
-         isLoaded: true,
-       });
-          console.log("Then executed");
-      })
-      // .catch((e) => {
-      //   console.log("Problem here")
-      // });
+        this.setState({
+          currentDayWeather: result.current,
+          currentFeelsLike: result.current.weather[0].main,
+          forecastWeather: result.daily,
+          city: city,
+          countryCode: country,
+          isLoaded: true,
+        });
+        console.log("Then executed");
+      });
+    // .catch((e) => {
+    //   console.log("Problem here")
+    // });
   };
   handleEnter = (city) => {
     console.log("Event Handler clicked");
@@ -42,7 +42,12 @@ class PrimeCard extends Component {
       .then((result) => {
         console.log(result);
         if (result[0] !== undefined) {
-          this.weatherUpdater(result[0].lat, result[0].lon,result[0].name,result[0].country);
+          this.weatherUpdater(
+            result[0].lat,
+            result[0].lon,
+            result[0].name,
+            result[0].country
+          );
         } else {
           console.log("Oops, City not found!!");
         }
@@ -85,13 +90,12 @@ class PrimeCard extends Component {
             placeItems: "center",
             height: "100vh",
             fontFamily: "Caveat, cursive",
-            fontSize: "6rem"
+            fontSize: "6rem",
           }}
         >
           <Loader
             type="spinner-default"
             title="Downloading Weather Data, Please Wait..."
-            
             size={120}
             style={{
               fontSize: "8rem",
@@ -102,7 +106,6 @@ class PrimeCard extends Component {
     return (
       <div
         style={{
-          
           backgroundRepeat: "no-repeat",
           backgroundSize: "auto",
           display: "flex",
@@ -121,6 +124,7 @@ class PrimeCard extends Component {
           currentDate={this.getCurrentDate()}
           cityName={this.state.city}
           countryCode={this.state.countryCode}
+          currentFeelsLike={this.state.currentFeelsLike}
         />
         <BottomComponent
           weatherForecast={this.state.forecastWeather}

@@ -1,12 +1,16 @@
-import React from 'react';
-import "../"
-function SideCompCards() {
+import React, { Component } from "react";
+import "../";
+class SideCompCards extends Component {
+  state = {};
+  render() {
+    //console.log(this.props);
+    const { text, value, suffix } = this.props;
     return (
       <div
         style={{
           color: "white",
           fontFamily: "Caveat, cursive",
-          paddingRight: "5rem"
+          paddingRight: "5rem",
         }}
       >
         <div
@@ -14,17 +18,18 @@ function SideCompCards() {
             fontSize: "3rem",
           }}
         >
-          23°
+          {text}
         </div>
         <div
           style={{
             fontSize: "2rem",
           }}
         >
-          Temp
+          {value} {suffix}
         </div>
       </div>
     );
+  }
 }
 
 export default SideCompCards;

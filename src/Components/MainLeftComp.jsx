@@ -3,9 +3,10 @@ class MainLeftComp extends Component {
   state = {};
 
   render() {
-    const { temp, currentDate, cityName, countryCode } = this.props;
-   let regionNames = new Intl.DisplayNames(["en"], { type: "region" });
-    const countryName=(regionNames.of(countryCode));
+    const { temp, currentDate, cityName, countryCode, currentFeelsLike } =
+      this.props;
+    let regionNames = new Intl.DisplayNames(["en"], { type: "region" });
+    const countryName = regionNames.of(countryCode);
 
     return (
       <div
@@ -60,7 +61,13 @@ class MainLeftComp extends Component {
                 }}
               >
                 <div className="display-3">{Math.trunc(temp)}°C</div>
-                <div>MOSTLY SUNNY</div>
+                <div
+                  style={{
+                    fontSize: "2rem",
+                  }}
+                >
+                  {currentFeelsLike}
+                </div>
               </div>
             </div>
           </div>

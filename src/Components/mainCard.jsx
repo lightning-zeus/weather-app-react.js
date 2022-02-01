@@ -1,18 +1,21 @@
 import React, { Component } from "react";
 import MainLeftComp from "./MainLeftComp";
 import MainRightcomp from "./MainRightcomp";
-import SearchBar from "./SearchBar";
 
 class MainCard extends React.Component {
-
-
   state = {
     url: "",
   };
   render() {
-    const { currentWeather, currentDate, cityName, countryCode } = this.props;
+    const {
+      currentWeather,
+      currentDate,
+      cityName,
+      countryCode,
+      currentFeelsLike,
+    } = this.props;
     const { temp } = currentWeather;
-   
+
     return (
       <div
         style={{
@@ -37,9 +40,11 @@ class MainCard extends React.Component {
           currentDate={currentDate}
           cityName={cityName}
           countryCode={countryCode}
+          currentWeather={currentWeather}
+          currentFeelsLike={currentFeelsLike}
         />
 
-        <MainRightcomp />
+        <MainRightcomp currentWeather={currentWeather} />
       </div>
     );
   }

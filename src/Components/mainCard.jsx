@@ -14,6 +14,7 @@ class MainCard extends React.Component {
       countryCode,
       currentFeelsLike,
       timeZone,
+      icon,
     } = this.props;
     const { temp } = currentWeather;
 
@@ -37,7 +38,7 @@ class MainCard extends React.Component {
         </div> */}
         <MainLeftComp
           temp={temp}
-          //icon={icon}
+          icon={icon}
           currentDate={currentDate}
           cityName={cityName}
           countryCode={countryCode}

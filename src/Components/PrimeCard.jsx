@@ -124,7 +124,7 @@ class PrimeCard extends Component {
         />
         <MainCard
           currentWeather={this.state.currentDayWeather}
-          //icon={this.state.currentDayWeather.weather.icon}
+          icon={this.state.currentDayWeather.weather[0].icon}
           currentDate={this.getCurrentDate()}
           cityName={this.state.city}
           countryCode={this.state.countryCode}

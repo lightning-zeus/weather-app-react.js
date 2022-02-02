@@ -16,7 +16,7 @@ class WeatherCard extends React.Component {
     return (
       <div>
         <Card
-          // border="success"
+          className= "container"
           style={{
             width: "17rem",
             padding: "1rem 0rem",

@@ -2,8 +2,17 @@ import React, { Component } from "react";
 import { Card } from "react-bootstrap";
 
 class WeatherCard extends React.Component {
+  iconDecider(icon) {
+    let numPart = icon.substring(0, 2);
+
+    if (numPart === "03" || numPart === "04")
+      return "assets/02" + icon.substring(2) + ".svg";
+
+    return   "assets/" +icon + ".svg";
+  }
   render() {
-    const { tempmax, tempmin } = this.props;
+    const { tempmax, tempmin, icon } = this.props;
+    const iconPath = this.iconDecider(icon);
     return (
       <div>
         <Card
@@ -13,14 +22,15 @@ class WeatherCard extends React.Component {
             padding: "1rem 0rem",
             margin: "2em 2em",
             border: "0px",
-            backgroundColor: "rgba(245, 245, 245, 0.04)",
+            backgroundColor: "rgba(245, 245, 245, 0.05)",
+            
             opacity: "0.9",
             borderColor: "cyan",
             fontFamily: "Caveat, cursive",
             height: "auto",
           }}
         >
-          <Card.Img variant="top" src="assets/10n.svg" height="60px" />
+          <Card.Img variant="top" src={(`${iconPath}`)} height="60px" />
           <Card.Body>
             <Card.Title
               style={{

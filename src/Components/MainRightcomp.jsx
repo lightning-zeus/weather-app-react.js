@@ -3,12 +3,20 @@ import SideCompCards from "./SideCompCards";
 
 class MainRightcomp extends Component {
   state = {};
+
+  constructWeatherObject(tZ) {
+    return {
+      timeZone: tZ,
+    }
+  }
   render() {
-    const { currentWeather } = this.props;
+    const { currentWeather, timeZone } = this.props;
     const { humidity, pressure, feels_like, sunrise, sunset, wind_speed } =
       currentWeather;
-    //console.log(humidity, pressure);
-
+    const sunRise = new Date(sunrise * 1000);
+    const sunSet = new Date(sunset * 1000);
+    const timeZoneObject = this.constructWeatherObject(timeZone);
+    console.log(timeZoneObject);
     return (
       <div
         style={{
@@ -42,8 +50,16 @@ class MainRightcomp extends Component {
             flexDirection: "",
           }}
         >
-          <SideCompCards text={"Sunrise"} value={sunrise} suffix={""} />
-          <SideCompCards text={"Sunset"} value={sunset} suffix={""} />
+          <SideCompCards
+            text={"Sunrise"}
+            value={sunRise.toLocaleTimeString("en-IN", timeZoneObject)}
+            suffix={""}
+          />
+          <SideCompCards
+            text={"Sunset"}
+            value={sunSet.toLocaleTimeString("en-IN", timeZoneObject)}
+            suffix={""}
+          />
           <SideCompCards
             text={"Wind Speed"}
             value={wind_speed}

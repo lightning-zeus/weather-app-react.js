@@ -10,6 +10,7 @@ class PrimeCard extends Component {
     forecastWeather: [],
     city: "",
     countryCode: "",
+    timeZone: "",
     isLoaded: false,
   };
 
@@ -19,6 +20,7 @@ class PrimeCard extends Component {
     )
       .then((res) => res.json())
       .then((result) => {
+        console.log(result);
         this.setState({
           currentDayWeather: result.current,
           currentFeelsLike: result.current.weather[0].main,
@@ -26,6 +28,7 @@ class PrimeCard extends Component {
           city: city,
           countryCode: country,
           isLoaded: true,
+          timeZone: result.timezone,
         });
         console.log("Then executed");
       });
@@ -67,6 +70,7 @@ class PrimeCard extends Component {
           city: `Kolkata`,
           countryCode: `IN`,
           isLoaded: true,
+          timeZone: "Asia/Kolkata",
         });
       });
   }
@@ -125,6 +129,7 @@ class PrimeCard extends Component {
           cityName={this.state.city}
           countryCode={this.state.countryCode}
           currentFeelsLike={this.state.currentFeelsLike}
+          timeZone={this.state.timeZone}
         />
         <BottomComponent
           weatherForecast={this.state.forecastWeather}

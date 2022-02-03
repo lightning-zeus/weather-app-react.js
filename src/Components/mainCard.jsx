@@ -29,13 +29,6 @@ class MainCard extends React.Component {
           flexWrap: "wrap",
         }}
       >
-        {/* <div style={{
-          color: "white",
-          textAlign: "left",
-        }}>
-          <h1>Kolkata , India</h1>
-          <h4>Monday ,  23rd January</h4>
-        </div> */}
         <MainLeftComp
           temp={temp}
           icon={icon}

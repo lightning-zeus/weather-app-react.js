@@ -11,6 +11,7 @@ class SideCompCards extends Component {
           color: "white",
           fontFamily: "Caveat, cursive",
           paddingRight: "5rem",
+          minWidth :"fit-content"
         }}
       >
         <div

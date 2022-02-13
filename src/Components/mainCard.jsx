@@ -22,20 +22,15 @@ class MainCard extends React.Component {
       <div
         style={{
           display: "flex",
+          // alignItems: "center",
+          justifyContent: "space-evenly",
           alignItems: "center",
-          justifyContent: "center",
-          alignContent: "center",
+          width: "100%",
+          // alignContent: "center",
           flex: "row",
           flexWrap: "wrap",
         }}
       >
-        {/* <div style={{
-          color: "white",
-          textAlign: "left",
-        }}>
-          <h1>Kolkata , India</h1>
-          <h4>Monday ,  23rd January</h4>
-        </div> */}
         <MainLeftComp
           temp={temp}
           icon={icon}

@@ -22,7 +22,8 @@ class MainRightcomp extends Component {
         style={{
           display: "flex",
           flexDirection: "column",
-          margin: "0em -25em 0em 25em",
+          // margin: "0em -25em 0em 25em",
+          minWidth: "fit-content",
         }}
       >
         <div

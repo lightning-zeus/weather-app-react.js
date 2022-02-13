@@ -6,10 +6,7 @@ class SearchBar extends Component {
     url: "",
   };
 
-  componentDidUpdate(prevProps, prevState) {
-    if(prevState!==this.state)
-    console.log(prevState, this.state);
-  }
+ 
 
   
 

@@ -3,7 +3,7 @@ import "../";
 class SideCompCards extends Component {
   state = {};
   render() {
-    //console.log(this.props);
+    
     const { text, value, suffix } = this.props;
     return (
       <div

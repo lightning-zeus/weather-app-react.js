@@ -20,7 +20,7 @@ class PrimeCard extends Component {
     )
       .then((res) => res.json())
       .then((result) => {
-        console.log(result);
+        
         this.setState({
           currentDayWeather: result.current,
           currentFeelsLike: result.current.weather[0].main,

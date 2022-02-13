@@ -22,9 +22,11 @@ class MainCard extends React.Component {
       <div
         style={{
           display: "flex",
+          // alignItems: "center",
+          justifyContent: "space-evenly",
           alignItems: "center",
-          justifyContent: "center",
-          alignContent: "center",
+          width: "100%",
+          // alignContent: "center",
           flex: "row",
           flexWrap: "wrap",
         }}

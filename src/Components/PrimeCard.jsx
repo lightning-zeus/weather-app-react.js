@@ -37,13 +37,13 @@ class PrimeCard extends Component {
     // });
   };
   handleEnter = (city) => {
-    
+
     fetch(
       `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=cb4d3020367da2edfedc7ab07356eb3f`
     )
       .then((res) => res.json())
       .then((result) => {
-        
+
         if (result[0] !== undefined) {
           this.weatherUpdater(
             result[0].lat,
@@ -63,7 +63,7 @@ class PrimeCard extends Component {
     )
       .then((res) => res.json())
       .then((result) => {
-        
+
         this.setState({
           currentDayWeather: result.current,
           forecastWeather: result.daily,
@@ -114,6 +114,7 @@ class PrimeCard extends Component {
           backgroundSize: "auto",
           display: "flex",
           height: "100vh",
+          alignItems: "center",
           flexDirection: "column",
           overflow: "auto",
         }}
@@ -133,7 +134,7 @@ class PrimeCard extends Component {
         />
         <BottomComponent
           weatherForecast={this.state.forecastWeather}
-          //iconInfo={this.state.forecastWeather}
+        //iconInfo={this.state.forecastWeather}
         />
       </div>
     );

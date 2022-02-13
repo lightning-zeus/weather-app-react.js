@@ -24,7 +24,7 @@ class MainLeftComp extends Component {
     return (
       <div>
         <Card
-          className="container"
+          // className="container"
           style={{
             //maxWidth: "540px",
             justifyContent: "left",
@@ -33,7 +33,7 @@ class MainLeftComp extends Component {
             alignItems: "center",
             backgroundColor: "rgba(245, 245, 245, 0)",
             color: "white",
-            margin: "0em 0em 0em -20em",
+            // margin: "0em 0em 0em -20em",
             fontFamily: "Caveat, cursive",
           }}
         >

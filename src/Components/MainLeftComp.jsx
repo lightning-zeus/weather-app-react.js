@@ -21,7 +21,7 @@ class MainLeftComp extends Component {
 
     return (
       <div
-        className="card mb-3"
+        
         style={{
           maxWidth: "540px",
           justifyContent: "left",
@@ -31,6 +31,7 @@ class MainLeftComp extends Component {
           color: "white",
           margin: "0em 30em 0em -20em",
           fontFamily: "Caveat, cursive",
+          //flexWrap: "wrap",
         }}
       >
         <div className="row no-gutters text-center">

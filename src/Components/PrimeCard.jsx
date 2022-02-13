@@ -37,7 +37,7 @@ class PrimeCard extends Component {
   handleEnter = (city) => {
 
     fetch(
-      `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=cb4d3020367da2edfedc7ab07356eb3f`
+      `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=cb4d3020367da2edfedc7ab07356eb3f`
     )
       .then((res) => res.json())
       .then((result) => {

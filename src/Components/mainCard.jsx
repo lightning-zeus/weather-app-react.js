@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import MainLeftComp from "./MainLeftComp";
 import MainRightcomp from "./MainRightcomp";
 
@@ -22,11 +22,11 @@ class MainCard extends React.Component {
       <div
         style={{
           display: "flex",
-          // alignItems: "center",
+          
           justifyContent: "space-evenly",
           alignItems: "center",
           width: "100%",
-          // alignContent: "center",
+          
           flex: "row",
           flexWrap: "wrap",
         }}
@@ -49,10 +49,7 @@ class MainCard extends React.Component {
       </div>
     );
   }
-  //getCurrentDate() {
-  //  let newDate = new Date();
-  //  return newDate.toDateString();
-  //}
+
 }
 
 export default MainCard;

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Button } from "react-bootstrap";
 class SearchBar extends Component {
   state = {
     city: "",
@@ -10,16 +11,7 @@ class SearchBar extends Component {
     console.log(prevState, this.state);
   }
 
-  // handleEnter = (event) => {
-  //  event.preventDefault();
-  //  this.setState({
-  //    city: this.inputNode.value,
-  //    url: `http://api.openweathermap.org/data/2.5/weather?q=
-  //      ${this.state.city}
-  //      &units=metric&appid=cb4d3020367da2edfedc7ab07356eb3f`,
-  //  });
-  //  console.log(this.state.city);
-  // };
+  
 
   render() {
     return (
@@ -29,12 +21,11 @@ class SearchBar extends Component {
           display: "flex",
           flexDirection: "",
           textAlign: "center",
-          // alignItems: "center",
           justifyContent: "right",
           margin: "2em 4em 4em 4em",
         }}
       >
-        <form onSubmit={e=>e.preventDefault()}>
+        <form onSubmit={(e) => e.preventDefault()}>
           <input
             type="text"
             style={{ height: "40px", fontWeight: "bold", borderRadius: "10px" }}
@@ -43,12 +34,13 @@ class SearchBar extends Component {
             ref={(node) => (this.inputNode = node)}
             placeholder="Enter a City"
           ></input>
-          <button
-            onClick={()=>this.props.onEnter(this.inputNode.value)}
-            className="btn btn-secondary btn-sm"
+          <Button
+            variant="primary"
+            style={{margin:"0px 1rem"}}
+            onClick={() => this.props.onEnter(this.inputNode.value)}
           >
             Enter
-          </button>
+          </Button>{" "}
         </form>
         <span style={{ color: "white" }}>{this.state.city}</span>
       </div>

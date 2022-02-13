@@ -1,10 +1,10 @@
-import React, { Component } from "react";
+import React from "react";
 import WeatherCard from "./WeatherCard";
 
 class BottomComponent extends React.Component {
   render() {
     const weatherForecast = this.props.weatherForecast;
-    //console.log(weatherForecast);
+    
     return (
       <div
         style={{

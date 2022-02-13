@@ -16,13 +16,12 @@ class MainRightcomp extends Component {
     const sunRise = new Date(sunrise * 1000);
     const sunSet = new Date(sunset * 1000);
     const timeZoneObject = this.constructWeatherObject(timeZone);
-    console.log(timeZoneObject);
+   
     return (
       <div
         style={{
           display: "flex",
           flexDirection: "column",
-          // margin: "0em -25em 0em 25em",
           minWidth: "fit-content",
         }}
       >

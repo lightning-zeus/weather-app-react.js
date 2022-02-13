@@ -30,11 +30,9 @@ class PrimeCard extends Component {
           isLoaded: true,
           timeZone: result.timezone,
         });
-        console.log("Then executed");
+
       });
-    // .catch((e) => {
-    //   console.log("Problem here")
-    // });
+    
   };
   handleEnter = (city) => {
 
@@ -75,9 +73,7 @@ class PrimeCard extends Component {
       });
   }
 
-  iconDecider = function () {
-    const { icon } = this.state.weather;
-  };
+
 
   getCurrentDate() {
     let newDate = new Date();
@@ -85,7 +81,7 @@ class PrimeCard extends Component {
   }
 
   render() {
-    //console.log(this.state);
+   
     if (!this.state.isLoaded)
       return (
         <div
@@ -120,7 +116,7 @@ class PrimeCard extends Component {
         }}
       >
         <SearchBar
-          // style={{ display: "flex", justifyContent: "right" }}
+          
           onEnter={this.handleEnter}
         />
         <MainCard
@@ -134,7 +130,6 @@ class PrimeCard extends Component {
         />
         <BottomComponent
           weatherForecast={this.state.forecastWeather}
-        //iconInfo={this.state.forecastWeather}
         />
       </div>
     );

@@ -19,21 +19,21 @@ class MainLeftComp extends Component {
     let regionNames = new Intl.DisplayNames(["en"], { type: "region" });
     const countryName = regionNames.of(countryCode);
     const iconPath = this.iconDecider(icon);
-    console.log(iconPath);
+   
 
     return (
       <div>
         <Card
-          // className="container"
+          
           style={{
-            //maxWidth: "540px",
+            
             justifyContent: "left",
             display: "flex",
             flexWrap: "wrap",
             alignItems: "center",
             backgroundColor: "rgba(245, 245, 245, 0)",
             color: "white",
-            // margin: "0em 0em 0em -20em",
+            
             fontFamily: "Caveat, cursive",
           }}
         >
@@ -76,6 +76,7 @@ class MainLeftComp extends Component {
                   style={{
                     margin: "1rem 0rem 1rem 1rem",
                     height: "8rem",
+                    width: "8rem",
                   }}
                 />
                 <div
